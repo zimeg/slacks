@@ -1,6 +1,19 @@
-# Slack sample app testing
+# Datastored
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+An app with only two datastores, one for reminders and one for todos.
 
-These apps aren't too interesting, but one you make will be! Check out [api.slack.com/future](https://api.slack.com/future) if you're curious!
+```markdown
+## Reminders
+
+* reminder_id: string
+* reminder: string
+* notes: string
+```
+
+```markdown
+## Todos
+
+* task_id: string
+* tas: string
+* notes: string
+```
