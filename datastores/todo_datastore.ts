@@ -1,11 +1,6 @@
 import { DefineDatastore, Schema } from "deno-slack-sdk/mod.ts";
 
-/**
- * Datastores are a Slack-hosted location to store
- * and retrieve data for your app.
- * https://api.slack.com/future/datastores
- */
-const SampleObjectDatastore = DefineDatastore({
+const TodoDatastore = DefineDatastore({
   name: "Todos",
   primary_key: "task_id",
   attributes: {
@@ -21,4 +16,4 @@ const SampleObjectDatastore = DefineDatastore({
   },
 });
 
-export default SampleObjectDatastore;
+export default TodoDatastore;

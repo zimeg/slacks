@@ -7,7 +7,9 @@ An app with only two datastores, one for reminders and one for todos.
 
 * reminder_id: string
 * reminder: string
-* notes: string
+* priortiy: number
+* complete: boolean
+* notes: string[]
 ```
 
 ```markdown
