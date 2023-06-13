@@ -5,7 +5,7 @@ const ReminderDatastore = DefineDatastore({
   primary_key: "reminder_id",
   attributes: {
     reminder_id: {
-      type: Schema.types.string,
+      type: Schema.types.number,
     },
     reminder: {
       type: Schema.types.string,
