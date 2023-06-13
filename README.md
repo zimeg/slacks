@@ -3,12 +3,19 @@
 This repo contains branches of sample apps and is used for quickly testing and
 reviewing changes 🔬
 
-These apps aren't too interesting, but one you make will be! Check out
-[api.slack.com/automation](https://api.slack.com/automation) if you're curious!
+These apps might not be too interesting, but one you make will be! Check out
+[api.slack.com/automation][automation] if you're curious!
 
 ## Apps on branches
 
 Certain branches have apps that can be useful for testing specific features.
+
+To get started with one, install the [CLI][cli] then run the following command
+with the branch you'd want:
+
+```sh
+$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
+```
 
 Here are some notable branches:
 
@@ -18,3 +25,7 @@ Here are some notable branches:
 And some branches used in testing:
 
 - `HERMES-5043`: Testing uninstall/delete behaviors.
+
+<!-- a collection of links -->
+[automation]: https://api.slack.com/automation
+[cli]: https://api.slack.com/automation/cli/install
