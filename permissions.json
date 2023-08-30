@@ -1,0 +1,7 @@
+{
+    "function_distribution": {
+        "greeting_function": {
+            "type": "EVERYONE"
+        }
+    }
+}
