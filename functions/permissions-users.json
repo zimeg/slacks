@@ -1,0 +1,11 @@
+{
+    "function_distribution": {
+        "greeting_function": {
+            "type": "named_entities",
+            "user_ids": ["USLACKBOT", "U03SV4BFTJP"]
+        },
+        "goodbye_function": {
+            "type": "app_collaborators"
+        }
+    }
+}

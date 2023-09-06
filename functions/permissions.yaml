@@ -1,0 +1,5 @@
+function_distribution:
+  greeting_function:
+    type: everyone
+  goodbye_function:
+    type: everyone

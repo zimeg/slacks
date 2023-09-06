@@ -1,0 +1,11 @@
+{
+    "function_distribution": {
+        "greeting_function": {
+            "type": "named_entities"
+        },
+        "goodbye_function": {
+            "type": "named_entities",
+            "user_ids": []
+        }
+    }
+}

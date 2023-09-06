@@ -1,0 +1,12 @@
+{
+    "function_distribution": {
+        "greeting_function": {
+            "type": "everyone",
+            "user_ids": ["USLACKBOT"]
+        },
+        "goodbye_function": {
+            "type": "app_collaborators",
+            "user_ids": ["USLACKBOT"]
+        }
+    }
+}
