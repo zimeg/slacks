@@ -19,6 +19,7 @@ $ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
 
 Here are some notable branches:
 
+- `HERMES-1158`: Workflow with the Giphy connector.
 - `HERMES-3948`: Trigger definitions of all types.
 - `HERMES-4685`: Two datastores only. No workflows.
 - `HERMES-5547`: Functions made for distribution.
