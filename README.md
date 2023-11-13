@@ -27,6 +27,7 @@ Here are some notable branches:
 And some branches used in testing:
 
 - `HERMES-5043`: Testing uninstall/delete behaviors.
+- `HERMES-5122`: Error when greeting @slackbot.
 
 <!-- a collection of links -->
 [automation]: https://api.slack.com/automation
