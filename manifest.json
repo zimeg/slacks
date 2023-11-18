@@ -1,0 +1,109 @@
+{
+    "_metadata": {
+        "major_version": 1,
+        "minor_version": 1
+    },
+    "display_information": {
+        "name": "JIRA Time"
+    },
+    "features": {
+        "app_home": {
+            "home_tab_enabled": true,
+            "messages_tab_enabled": false,
+            "messages_tab_read_only_enabled": true
+        },
+        "bot_user": {
+            "display_name": "JIRA Time",
+            "always_online": false
+        },
+        "shortcuts": [],
+        "slash_commands": []
+    },
+    "oauth_config": {
+        "scopes": {
+            "bot": [
+                "channels:history",
+                "chat:write",
+                "commands"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "bot_events": [
+                "app_home_opened",
+                "message.channels"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true
+        },
+        "org_deploy_enabled": true,
+        "socket_mode_enabled": true,
+        "token_rotation_enabled": false
+    },
+    "functions": {
+        "create_issue": {
+            "title": "Create a ticket",
+            "description": "Adds a new ticket to the backlog",
+            "input_parameters": {
+                "githubAccessTokenId": {
+                    "type": "slack#/types/credential/oauth2",
+                    "oauth2_provider_key": "github"
+                },
+                "repositoryURL": {
+                    "type": "string",
+                    "title": "Repository URL",
+                    "is_required": true
+                },
+                "issueTitle": {
+                    "type": "string",
+                    "title": "Issue title",
+                    "is_required": true
+                },
+                "issueDescription": {
+                    "type": "string",
+                    "title": "Issue description",
+                    "is_required": false
+                }
+            },
+            "output_parameters": {
+                "issueNumber": {
+                    "type": "string",
+                    "title": "Issue number",
+                    "is_required": true
+                },
+                "issueLink": {
+                    "type": "string",
+                    "title": "Issue link",
+                    "is_required": true
+                }
+            }
+        }
+    },
+    "outgoing_domains": [],
+    "external_auth_providers": {
+        "oauth2": {
+            "github": {
+                "provider_type": "CUSTOM",
+                "options": {
+                    "provider_name": "GitHub",
+                    "authorization_url": "https://github.com/login/oauth/authorize",
+                    "token_url": "https://github.com/login/oauth/access_token",
+                    "client_id": "b89803122bbc853fb589",
+                    "scope": [
+                        "repo",
+                        "read:org",
+                        "read:user",
+                        "user:email",
+                        "read:enterprise"
+                    ],
+                    "identity_config": {
+                        "url": "https://api.github.com/user",
+                        "account_identifier": "$.login"
+                    }
+                }
+            }
+        }
+    }
+}

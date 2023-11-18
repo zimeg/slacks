@@ -1,34 +1,73 @@
-# Slack sample app testing
+# JIRA for Bolt for JavaScript
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+This is a custom Bolt for JavaScript app that creates issues.
 
-These apps might not be too interesting, but one you make will be! Check out
-[api.slack.com/automation][automation] if you're curious!
+Before getting started, make sure you have a development workspace where you have permissions to install apps. If you don’t have one setup, go ahead and [create one](https://slack.com/create).
 
-## Apps on branches
+## Installation
 
-Certain branches have apps that can be useful for testing specific features.
+#### Create a Slack App
 
-To get started with one, install the [CLI][cli] then run the following command
-with the branch you'd want:
+1. Open [https://api.slack.com/apps/new](https://api.slack.com/apps/new) and choose "From an app manifest"
+2. Choose the workspace you want to install the application to
+3. Copy the contents of [manifest.json](./manifest.json) into the text box that says `*Paste your manifest code here*` (within the JSON tab) and click *Next*
+4. Review the configuration and click *Create*
+5. Click *Install to Workspace* and *Allow* on the screen that follows. You'll then be redirected to the App Configuration dashboard.
 
-```sh
-$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
+#### Environment Variables
+
+Before you can run the app, you'll need to store some environment variables.
+
+1. Rename `.env.sample` to `.env`
+2. Open your apps configuration page from [this list](https://api.slack.com/apps), click *OAuth & Permissions* in the left hand menu, then copy the *Bot User OAuth Token* into your `.env` file under `SLACK_BOT_TOKEN`
+3. Click *Basic Information* from the left hand menu and follow the steps in the *App-Level Tokens* section to create an app-level token with the `connections:write` scope. Copy that token into your `.env` as `SLACK_APP_TOKEN`.
+
+#### Configure the GitHub app
+
+For now issues are created with GitHub. False advertising, I know... Follow
+[these steps](https://github.com/slack-samples/deno-github-functions#create-an-oauth-app-on-github)
+to create an app and update the `manifest.json` with your own `client_id`.
+
+### Setup Your Local Project
+
+```zsh
+# Clone this project onto your machine
+slack create jiras --template zimeg/slack-sample-example --branch JIRA-JS
+
+# Change into this project directory
+$ cd jiras
+
+# Install dependencies
+$ npm install
+
+# Link a feature branch of Bolt
+$ npm link @slack/bolt
+
+# Update your app settings
+$ vim .slack/apps.dev.json
+$ vim manifest.json
+
+# Configure a GitHub app
+$ slack external-auth add-secret
+
+# Run Bolt server
+$ slack run
 ```
 
-Here are some notable branches:
+#### Linting
 
-- `HERMES-1158`: Workflow with the Giphy connector.
-- `HERMES-3948`: Trigger definitions of all types.
-- `HERMES-4685`: Two datastores only. No workflows.
-- `HERMES-5547`: Functions made for distribution.
+Run eslint for code formatting and linting
 
-And some branches used in testing:
+```zsh
+npm run lint:fix
+```
 
-- `HERMES-5043`: Testing uninstall/delete behaviors.
-- `HERMES-5122`: Error when greeting @slackbot.
+## Project Structure
 
-<!-- a collection of links -->
-[automation]: https://api.slack.com/automation
-[cli]: https://api.slack.com/automation/cli/install
+### `manifest.json`
+
+`manifest.json` is a configuration for Slack apps. With a manifest, you can create an app with a pre-defined configuration, or adjust the configuration of an existing app.
+
+### `app.js`
+
+`app.js` is the entry point for the application and is the file you'll run to start the server. This project aims to keep this file as thin as possible, primarily using it as a way to route inbound requests.
