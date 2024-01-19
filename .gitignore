@@ -1,0 +1,4 @@
+.slack/apps.dev.json
+.env*
+
+node_modules
