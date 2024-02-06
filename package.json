@@ -9,6 +9,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@slack/cli-hooks": "^0.0.7"
+    "@slack/cli-hooks": "^1.0.0"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.17.1"
   }
 }
