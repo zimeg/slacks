@@ -1,34 +1,40 @@
-# Slack sample app testing
+# 🪁 Tails
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+This app contains typed testings of [Bolt for JavaScript][boltjs] and runs with
+the [CLI Hooks][hooks].
 
-These apps might not be too interesting, but one you make will be! Check out
-[api.slack.com/automation][automation] if you're curious!
+## Spinning up
 
-## Apps on branches
+1. Install dependencies with `npm install` and download [the Slack CLI][cli].
+2. Use `npm run watch` to transpile changes to source code.
+3. Use `slack run` to reflect changes during development. Restarts required.
 
-Certain branches have apps that can be useful for testing specific features.
+## Setting the SDK versions
 
-To get started with one, install the [CLI][cli] then run the following command
-with the branch you'd want:
+This app uses the `@slack/bolt` package to power app functionalities and the
+`@slack/cli-hooks` package to make development easier.
+
+Either package version can be updated in the `package.json` to reference a local
+copy:
 
 ```sh
-$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
+$ npm install ../../tools/bolt-js
+$ npm install ../../tools/node-slack-sdk/packages/cli-hooks --save-dev
 ```
 
-Here are some notable branches:
+After making changes to a local copy, a rebuild of the package and app might be
+needed. Sometimes a fresh start helps too:
 
-- `HERMES-1158`: Workflow with the Giphy connector.
-- `HERMES-3948`: Trigger definitions of all types.
-- `HERMES-4685`: Two datastores only. No workflows.
-- `HERMES-5547`: Functions made for distribution.
+```sh
+$ npm run refresh
+```
 
-And some branches used in testing:
+## Documentation
 
-- `HERMES-5043`: Testing uninstall/delete behaviors.
-- `HERMES-5122`: Error when greeting @slackbot.
+- https://slack.dev/bolt-js/concepts
+- https://slack.dev/bolt-js/reference
 
-<!-- a collection of links -->
-[automation]: https://api.slack.com/automation
-[cli]: https://api.slack.com/automation/cli/install
+[apps]: https://api.slack.com/apps
+[boltjs]: https://github.com/slackapi/bolt-js
+[cli]: https://api.slack.com/automation/cli
+[hooks]: https://github.com/slackapi/node-slack-sdk/tree/main/packages/cli-hooks
