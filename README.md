@@ -1,34 +1,80 @@
-# Slack sample app testing
+# 🐍 snaek
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+A strange and slithery app with some superb powers. Depending on who you ask.
 
-These apps might not be too interesting, but one you make will be! Check out
-[api.slack.com/automation][automation] if you're curious!
+Made with [Bolt for Python][bolt] and your own language model.
 
-## Apps on branches
+## Speaking with the serpent
 
-Certain branches have apps that can be useful for testing specific features.
+Responses are received for any message involving this app, whether that be from
+a mention, DM, or threaded reply.
 
-To get started with one, install the [CLI][cli] then run the following command
-with the branch you'd want:
+https://github.com/zimeg/slack-sandbox/assets/18134219/57d4b11d-83fa-45c0-92e9-53c4c6d2e1d5
+
+## Getting started
+
+Tending to your digital garden is necessary when preparing these processes.
+
+### Selecting language models
+
+Local large language models are available for quick setup with [Ollama][ollama].
+
+After installing Ollama CLI, start an Ollama server for engaging conversation:
 
 ```sh
-$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
+$ ollama serve
 ```
 
-Here are some notable branches:
+The prepared model is `mistral` and other available models can be found from
+[the Ollama library][models].
 
-- `HERMES-1158`: Workflow with the Giphy connector.
-- `HERMES-3948`: Trigger definitions of all types.
-- `HERMES-4685`: Two datastores only. No workflows.
-- `HERMES-5547`: Functions made for distribution.
+Update the `OLLAMA_MODEL` environment variable with any model name you'd like!
 
-And some branches used in testing:
+#### Customizing system prompts
 
-- `HERMES-5043`: Testing uninstall/delete behaviors.
-- `HERMES-5122`: Error when greeting @slackbot.
+Custom models can be configured and created from the `models/Modelfile` file.
+Generate a new model with:
+
+```sh
+$ ollama create snaek --file models/Modelfile
+```
+
+#### Configuring networks
+
+Default settings serve the model on `localhost` but this can be changed to the
+local network by setting the `OLLAMA_HOST` environment variable to `0.0.0.0`.
+
+Models served on a separate machine can still be reached by the Slack app with
+a change to the `OLLAMA_CLIENT` environment variable.
+
+### Launching the application
+
+Development with the [Slack CLI][cli] is encouraged for simple app management.
+
+#### Preparing dependencies
+
+Clone the application code and download additional packages:
+
+```sh
+$ slack create snaek -t zimeg/slacks -b py.bolt.snaek
+$ cd snaek
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip install .
+```
+
+#### Starting in Socket Mode
+
+Running the app locally makes connecting to the Ollama server simple:
+
+```sh
+$ slack run
+```
+
+After making a connection, add the bot to a channel and start prompting!
 
 <!-- a collection of links -->
-[automation]: https://api.slack.com/automation
-[cli]: https://api.slack.com/automation/cli/install
+[bolt]: https://github.com/slackapi/bolt-python
+[cli]: https://api.slack.com/automation/cli
+[models]: https://ollama.com/library
+[ollama]: https://ollama.com
