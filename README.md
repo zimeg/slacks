@@ -1,34 +1,102 @@
-# Slack sample app testing
+# 🛰️ Surge
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+Infrastructure configurations to deploy a [Bolt for JavaScript][bolt] app on
+Heroku.
 
-These apps might not be too interesting, but one you make will be! Check out
-[api.slack.com/automation][automation] if you're curious!
+Showcasing some features of Slack automations from the sights of a satellite.
 
-## Apps on branches
+## Getting started
 
-Certain branches have apps that can be useful for testing specific features.
-
-To get started with one, install the [CLI][cli] then run the following command
-with the branch you'd want:
+Development with the [Slack CLI][cli] is encouraged but requires customization:
 
 ```sh
-$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
+$ slack create surge -t zimeg/slacks -b js.bolt.surge
+$ cd surge
+$ slack run     # Local development
+$ slack deploy  # Push to production
 ```
 
-Here are some notable branches:
+### Managing infrastructure
 
-- `HERMES-1158`: Workflow with the Giphy connector.
-- `HERMES-3948`: Trigger definitions of all types.
-- `HERMES-4685`: Two datastores only. No workflows.
-- `HERMES-5547`: Functions made for distribution.
+The servers that run a production instance of this app require additional tools
+and your own credentials:
 
-And some branches used in testing:
+- Install [OpenTofu][opentofu] to handle infrastructure updates
+- Use the [Heroku CLI][hcli] to gather an API token
 
-- `HERMES-5043`: Testing uninstall/delete behaviors.
-- `HERMES-5122`: Error when greeting @slackbot.
+Details on preparing infrastrcture are outlined in [`infra/README.md`][infra].
+
+### Setting up without the CLI
+
+Setup without the Slack CLI can also be accomplished in a few more steps.
+
+#### Preparing the project
+
+Prepare the project and dependencies with the following commands:
+
+```sh
+$ git clone --single-branch --branch js.bolt.surge https://github.com/zimeg/slacks surge
+$ cd surge
+$ npm install
+```
+
+#### Creating a new Slack app
+
+Preparing the app can also happen from the App Config:
+
+1. Copy the contents of `manifest.json` for when you [create a new app][new]
+2. Select the workspace to install this application in
+3. Review and apply manifest configurations before clicking *Create*
+4. Install the app to your workspace
+5. Navigate to the App Config dashboad to gather more credentials
+
+#### Gathering environment variables
+
+Store the tokens needed to run your app in a secret place:
+
+1. Rename `.env.example` to `.env` and edit that new file
+2. Create an app token with `connections:write` scopes under *Basic Information*
+3. Gather the bot token from the *OAuth & Permissions* page
+4. Export these variables into your current shell environment
+
+#### Calling useful commands
+
+Run some of the following commands once everything is ready:
+
+- `npm run start`: Run the app on the current machine
+- `npm run bundle`: Package the application code for deployment
+- `npm run deploy`: Push local changes to a production environment
+- `npm run lint`: Lint and format the application code
+- `npm run clean`: Remove dependencies and build artifacts
+
+The most current information can be found in `package.json`.
+
+## Project structure
+
+### `infra/main.tf`
+
+Initializations for the infrastructure providers. Other files in this directory
+provide details on server setups.
+
+### `src/app.js`
+
+The entry point into this application. Any other logic can also be found in this
+directory.
+
+### `manifest.json`
+
+The coded configurations and subtle settings of a Slack app. Updates to this
+file are automatically applied to an app installation when using the `run` or
+`deploy` commands of the Slack CLI.
+
+### `slack.json`
+
+Hooks that the CLI uses to interact with this project and the associated SDK.
 
 <!-- a collection of links -->
-[automation]: https://api.slack.com/automation
-[cli]: https://api.slack.com/automation/cli/install
+[bolt]: https://github.com/slackapi/bolt-js
+[cli]: https://api.slack.com/automation/cli
+[hcli]: https://devcenter.heroku.com/articles/heroku-cli
+[infra]: ./infra/README.md
+[new]: https://api.slack.com/apps?new_app=1
+[opentofu]: https://opentofu.org/docs/intro/install
