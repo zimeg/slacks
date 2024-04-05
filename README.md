@@ -1,34 +1,22 @@
-# Slack sample app testing
+# cli.boltjs.new
 
-This repo contains branches of sample apps and is used for quickly testing and
-reviewing changes 🔬
+This is a very simple Slack application built with Bolt for JavaScript. Mostly
+the "hello world" of chatbots.
 
-These apps might not be too interesting, but one you make will be! Check out
-[api.slack.com/automation][automation] if you're curious!
+But with a goal of being used with the CLI after creation.
 
-## Apps on branches
+## Setup
 
-Certain branches have apps that can be useful for testing specific features.
+Prepare a new app with certain scopes:
 
-To get started with one, install the [CLI][cli] then run the following command
-with the branch you'd want:
+1. Create a new application from App Config: https://api.slack.com/apps
+2. Gather an app token with the `connections:write` scope and signing secret
+3. Recieve events via Socket Mode
+4. Subscribe to the `message.channels` event
+5. Add the `chat:write` scope to a bot token
+6. Install the application to a workspace and save the bot token
 
-```sh
-$ slack create my-sandboxed-app -t zimeg/slack-sample-example -b <branch>
-```
+And run the app:
 
-Here are some notable branches:
-
-- `HERMES-1158`: Workflow with the Giphy connector.
-- `HERMES-3948`: Trigger definitions of all types.
-- `HERMES-4685`: Two datastores only. No workflows.
-- `HERMES-5547`: Functions made for distribution.
-
-And some branches used in testing:
-
-- `HERMES-5043`: Testing uninstall/delete behaviors.
-- `HERMES-5122`: Error when greeting @slackbot.
-
-<!-- a collection of links -->
-[automation]: https://api.slack.com/automation
-[cli]: https://api.slack.com/automation/cli/install
+1. Export environment variables into your current shell
+2. Run `node app.js`

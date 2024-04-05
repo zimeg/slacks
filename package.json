@@ -1,0 +1,22 @@
+{
+  "name": "cli.boltjs.new",
+  "version": "2024.4.4",
+  "description": "a bolt app looking for the cli",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo LGTM"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zimeg/slacks.git"
+  },
+  "author": "@zimeg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zimeg/slacks/issues"
+  },
+  "homepage": "https://github.com/zimeg/slacks#readme",
+  "dependencies": {
+    "@slack/bolt": "^3.17.1"
+  }
+}
