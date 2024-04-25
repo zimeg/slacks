@@ -1,0 +1,2 @@
+slack-cli-hooks==0.0.1
+slack-bolt==1.19.0rc1
