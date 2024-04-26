@@ -1,0 +1,1 @@
+cat manifest.json

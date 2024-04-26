@@ -1,9 +1,9 @@
-# cli.boltjs.deps
+# cli.boltjs.errgethooks
 
-Automatic setup of dependencies for a Node project:
+Successful deployment without a working `get-hooks`:
 
 ```sh
-$ slack create example --template zimeg/slacks --branch cli.boltjs.deps
+$ slack create example --template zimeg/slacks --branch cli.boltjs.errgethooks
 $ cd example
-$ slack run
+$ slack deploy -e bolt -v
 ```
