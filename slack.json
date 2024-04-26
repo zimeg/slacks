@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "dependencies": "npm install --no-audit --prefer-offline --progress=false --loglevel=verbose .",
+    "install-dependencies": "npm install --no-audit --prefer-offline --progress=false --loglevel=verbose .",
     "get-hooks": "npx -q --no-install -p @slack/cli-hooks slack-cli-get-hooks"
   }
 }
