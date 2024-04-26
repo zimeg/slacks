@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "dependencies": "python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt",
+    "install-dependencies": "python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt",
     "get-hooks": "python3 -m slack_cli_hooks.hooks.get_hooks"
   }
 }
