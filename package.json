@@ -1,0 +1,22 @@
+{
+  "name": "cli.boltjs.deps",
+  "version": "2024.4.26",
+  "description": "bootstraps",
+  "main": "app.js",
+  "scripts": {
+    "start": "lack run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zimeg/slacks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zimeg/slacks/issues"
+  },
+  "homepage": "https://github.com/zimeg/slacks#readme",
+  "dependencies": {
+    "@slack/bolt": "^3.18.0"
+  }
+}
