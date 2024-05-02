@@ -18,5 +18,8 @@
   "homepage": "https://github.com/zimeg/slacks#readme",
   "dependencies": {
     "@slack/bolt": "^3.18.0"
+  },
+  "devDependencies": {
+    "@slack/cli-hooks": "^1.1.0"
   }
 }
