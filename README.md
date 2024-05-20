@@ -40,5 +40,6 @@ From the docs:
 ## References
 
 - https://github.com/slackapi/bolt-python/issues/1083
+- https://slack.dev/bolt-python/concepts#options
 - https://api.slack.com/reference/block-kit/block-elements#external_select
 - https://api.slack.com/interactivity/handling#responses
