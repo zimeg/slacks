@@ -1,0 +1,57 @@
+{
+  "display_information": {
+    "name": "Cookie clicker"
+  },
+  "features": {
+    "app_home": {
+      "home_tab_enabled": true,
+      "messages_tab_enabled": true,
+      "messages_tab_read_only_enabled": true
+    },
+    "bot_user": {
+      "display_name": "Cookie clicker",
+      "always_online": false
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": ["chat:write", "channels:history"]
+    }
+  },
+  "settings": {
+    "interactivity": {
+      "is_enabled": true
+    },
+    "event_subscriptions": {
+      "bot_events": ["message.channels"]
+    },
+    "org_deploy_enabled": true,
+    "socket_mode_enabled": true,
+    "token_rotation_enabled": false
+  },
+  "functions": {
+    "cookies": {
+      "title": "Cookies",
+      "description": "A nice treat",
+      "input_parameters": {
+        "baker": {
+          "type": "slack#/types/user_id",
+          "title": "Baker",
+          "description": "Baker",
+          "is_required": true,
+          "hint": "The one who makes cookies",
+          "name": "baker"
+        }
+      },
+      "output_parameters": {
+        "baker": {
+          "type": "slack#/types/user_id",
+          "title": "Baker",
+          "description": "The one who made cookies",
+          "is_required": true,
+          "name": "baker"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Baker",
+  "version": "1.0.0",
+  "description": "Cooking pastries",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint --ext .js ."
+  },
+  "author": "Slack Technologies, LLC",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "bolt",
+    "slackapi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zimeg/slacks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zimeg/slacks/issues"
+  },
+  "dependencies": {
+    "@slack/bolt": "3.17.1-customFunctionBeta.0"
+  },
+  "devDependencies": {
+    "@slack/cli-hooks": "^1.1.0",
+    "eslint": "~8.57.0",
+    "eslint-config-airbnb-base": "~15.0.0",
+    "eslint-plugin-import": "~2.29.1"
+  }
+}
