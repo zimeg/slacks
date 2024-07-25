@@ -1,0 +1,22 @@
+{
+	"name": "js.bolt.socket",
+	"version": "2024.7.25",
+	"main": "app.js",
+	"type": "module",
+	"engines": {
+		"node": ">=20"
+	},
+	"author": "@zimeg",
+	"license": "MIT",
+	"scripts": {
+		"lint": "npx @biomejs/biome check --verbose",
+		"lint:fix": "npx @biomejs/biome check --verbose --write"
+	},
+	"dependencies": {
+		"@slack/bolt": "3.19.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@slack/cli-hooks": "1.1.0"
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "display_information": {
+    "name": "js.bolt.socket"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "js.bolt.socket",
+      "always_online": true
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": ["chat:write", "channels:history"]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": true,
+    "socket_mode_enabled": true,
+    "event_subscriptions": {
+      "bot_events": ["message.channels"]
+    }
+  }
+}
