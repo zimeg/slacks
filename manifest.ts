@@ -1,9 +1,9 @@
 import { DefineWorkflow, Manifest, Schema } from "deno-slack-sdk/mod.ts";
 
-export const SubmitKudosWorkflow = DefineWorkflow({
-  callback_id: "submit_kudos_workflow",
-  title: "Submit Kudos",
-  description: "Submit kudos for team members",
+export const RequestKudosWorkflow = DefineWorkflow({
+  callback_id: "request_kudos_workflow",
+  title: "Request Kudos",
+  description: "Request kudos for team members",
   input_parameters: {
     properties: {
       channel: {
@@ -14,34 +14,59 @@ export const SubmitKudosWorkflow = DefineWorkflow({
   },
 });
 
-const sendMessage = SubmitKudosWorkflow.addStep(
+RequestKudosWorkflow.addStep(
   Schema.slack.functions.SendMessage,
   {
-    channel_id: SubmitKudosWorkflow.inputs.channel,
+    channel_id: RequestKudosWorkflow.inputs.channel,
     message:
       "Submit kudos here, to recognize any of your teammates who went above and beyond this week :slightly_smiling_face:",
     interactive_blocks: [{
       type: "actions",
       elements: [
         {
-          type: "button",
-          url:
-            "https://slack.com/shortcuts/Ft07P32XV59R/631f7edf86081179a12af8a5938b4f29",
+          type: "workflow_button",
+          workflow: {
+            trigger: {
+              url:
+                "https://slack.com/shortcuts/Ft07PTEFEYG1/cddc5a16ee92fe08b8919b260d01b0b5",
+              customizable_input_parameters: [
+                {
+                  name: "channel",
+                  value: RequestKudosWorkflow.inputs.channel,
+                },
+              ],
+            },
+          },
           text: { type: "plain_text", text: "Submit" },
           style: "primary",
-          value: "Submit",
-          action_id: "submit_button",
         },
       ],
     }],
   },
 );
 
+export const SubmitKudosWorkflow = DefineWorkflow({
+  callback_id: "submit_kudos_workflow",
+  title: "Submit Kudos",
+  description: "Submit kudos for team members",
+  input_parameters: {
+    properties: {
+      channel: {
+        type: Schema.slack.types.channel_id,
+      },
+      interactivity: {
+        type: Schema.slack.types.interactivity,
+      },
+    },
+    required: ["channel", "interactivity"],
+  },
+});
+
 const kudoForm = SubmitKudosWorkflow.addStep(
   Schema.slack.functions.OpenForm,
   {
     title: "Submit Kudos",
-    interactivity: sendMessage.outputs.interactivity,
+    interactivity: SubmitKudosWorkflow.inputs.interactivity,
     submit_label: "Submit",
     fields: {
       elements: [{
@@ -74,8 +99,9 @@ export default Manifest({
   name: "give-kudo-buttons",
   description: "A kudo template with buttons",
   icon: "assets/default_new_app_icon.png",
-  workflows: [SubmitKudosWorkflow],
+  workflows: [RequestKudosWorkflow, SubmitKudosWorkflow],
   botScopes: ["commands", "chat:write", "chat:write.public"],
 });
 
-export const Kudos = SubmitKudosWorkflow;
+export const RequestKudos = RequestKudosWorkflow;
+export const SubmitKudos = SubmitKudosWorkflow;
