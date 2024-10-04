@@ -1,0 +1,41 @@
+{
+  "name": "js.bolt.surge",
+  "version": "2024.08.31",
+  "description": "a powerful online email application",
+  "homepage": "https://surgem.ai",
+  "main": "src/app.js",
+  "scripts": {
+    "watch": "npx nodemon --exec npm run start",
+    "start": "node src/app.js",
+    "logs": "heroku logs --tail --app surged",
+    "logs:slack": "heroku logs --tail --app surged | grep app",
+    "logs:web": "heroku logs --tail --app surged | grep heroku",
+    "check": "tsc --noemit --module es2022 --project ./jsconfig.json",
+    "lint": "npx @biomejs/biome check --verbose",
+    "lint:fix": "npx @biomejs/biome check --verbose --write",
+    "test": "npm run lint && npm run check"
+  },
+  "author": "@zimeg",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "email"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zimeg/slack-sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zimeg/slack-sandbox/issues"
+  },
+  "workspaces": [
+    "scripts",
+    "src"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.9.3",
+    "@slack/cli-hooks": "1.1.1",
+    "nodemon": "3.1.7",
+    "typescript": "^5.6.2"
+  }
+}
