@@ -1,0 +1,11 @@
+# Development environment
+.direnv
+node_modules
+
+# Secrets and similar things
+.env*
+!.env.example
+store
+
+# Testing tooling
+coverage
