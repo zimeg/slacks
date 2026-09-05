@@ -1,0 +1,50 @@
+{
+  "name": "js.bolt.surge",
+  "version": "2024.12.10",
+  "description": "a powerful online email application",
+  "homepage": "https://surgem.ai",
+  "type": "module",
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev",
+    "lint": "biome check --verbose",
+    "lint:fix": "biome check --verbose --write",
+    "pretest": "npm run lint",
+    "start": "node .output/server/index.mjs",
+    "test": "node --test --experimental-test-coverage server/**/*.spec.js"
+  },
+  "author": "@zimeg",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "email"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zimeg/slack-sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zimeg/slack-sandbox/issues"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@slack/bolt": "5.1.0",
+    "@slack/logger": "5.0.0",
+    "@slack/oauth": "4.0.0",
+    "@vercel/slack-bolt": "^1.6.4",
+    "ai": "^7.0.79",
+    "prettier": "^3.9.6"
+  },
+  "devDependencies": {
+    "@slack/cli-hooks": "2.0.0",
+    "nitropack": "^2.13.4"
+  },
+  "overrides": {
+    "@slack/bolt": "$@slack/bolt",
+    "@slack/oauth": "$@slack/oauth",
+    "@slack/logger": "$@slack/logger"
+  }
+}
