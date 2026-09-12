@@ -1,0 +1,14 @@
+# Development leftovers
+.direnv
+
+# Build artifacts
+*.class
+*.jar
+.classpath
+.gradle
+.project
+.settings
+build
+gradle-wrapper.*
+gradlew
+gradlew.bat
