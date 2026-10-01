@@ -1,0 +1,8 @@
+# Development environment
+.direnv
+node_modules
+
+# Build output
+.output
+.nitro
+.vercel
