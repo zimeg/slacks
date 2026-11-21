@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1795085501,
+        "narHash": "sha256-S5keGWzaKpuXo9MNoIC2FfTIuTyTnx8P4NhYJMEsTLI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bb8272318b4ca41bf0edc6224df3e3e3046b70d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "python-slack-sdk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770761083,
+        "narHash": "sha256-laGYC53w7MwwkOkZnxornR/0PGTaTlLuzPBDGEGE4xU=",
+        "owner": "slackapi",
+        "repo": "python-slack-sdk",
+        "rev": "8b0bd0b50128acb2da1b766d0a74d1897d173f7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "slackapi",
+        "ref": "v3.40.0",
+        "repo": "python-slack-sdk",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "python-slack-sdk": "python-slack-sdk"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
